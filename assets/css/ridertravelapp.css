@@ -1,0 +1,39 @@
+
+
+.jumbotron h1 {
+	color: teal;
+}
+h1 {
+	font-family: 'Josefin Slab';
+	font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26px;
+
+}
+h3 {
+	font-family: 'Josefin Slab';
+	font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26px;
+
+}
+
+.fa-train{
+	color: purple;
+}
+h2 {
+	color:purple;
+}
+body {
+	background-color: grey;
+}
+	line-height: 26px;
+
+.Background-image {
+	height: 400
+	width: 100%;
+}
