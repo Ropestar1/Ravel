@@ -6,7 +6,10 @@ $("#submit").on("click", function(event){
  var destination = $("#destination").val().trim();
  var origin = $("#origin").val().trim();
  // var time = $("#time").val().trim();
-  var queryURL = 
+
+console.log(origin);
+
+ var queryURL = 
  "https://cors-anywhere.herokuapp.com/"+"https://maps.googleapis.com/maps/api/directions/json?origin=" + origin + "&destination=" + destination + "&key=AIzaSyA0oMhk60GOJSoK46J8f0dAwghkBwgThl0";
 
 
