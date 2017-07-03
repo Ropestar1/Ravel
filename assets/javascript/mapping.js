@@ -24,7 +24,7 @@ $("#submit").on("click", function(event){
    
  }).done(function(response){
  	// debugger;
-   console.log("done : "+ response);
+   console.log(response);
    // $("#map").append(response);
 
 })
