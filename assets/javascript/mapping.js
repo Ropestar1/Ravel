@@ -8,7 +8,7 @@ $("#submit").on("click", function(event){
  var origin = $("#origin").val().trim();
  // var time = $("#time").val().trim();
   var queryURL = 
- "https://cors-anywhere.herokuapp.com/"+"https://maps.googleapis.com/maps/api/directions/json?origin=" + origin + "&destination=" + destination + "&key=AIzaSyA0oMhk60GOJSoK46J8f0dAwghkBwgThl0";
+ "https://cors-anywhere.herokuapp.com/"+"https://maps.googleapis.com/maps/api/directions/json?origin=" + origin + "&destination=" + destination + "&Mode=BICYCLING&key=AIzaSyA0oMhk60GOJSoK46J8f0dAwghkBwgThl0";
 
 
 
@@ -24,7 +24,7 @@ $("#submit").on("click", function(event){
    
  }).done(function(response){
  	// debugger;
-   console.log("done : "+ response.object);
+   console.log("done : "+ response);
    // $("#map").append(response);
 
 })
