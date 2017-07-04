@@ -1,0 +1,67 @@
+/*Style to fix the issue of text extending past panel length*/
+.panel-body a {
+    word-break:break-all
+}
+
+.jumbotron h1 {
+	color: teal;
+}
+
+#main-heading {
+	background-image: url("http://4.bp.blogspot.com/-WuEuFYWZhIA/UOc4seMTY-I/AAAAAAAAB-A/YtZAUJ7f68U/s1600/Facebook-Timeline-Profile-Covers-New-York-NYC16.jpg");
+}
+
+.panel-heading-ravel {
+	background-color: teal !important;
+	color: white;
+}
+
+.button-ravel {
+	background-color: teal;
+}
+
+.current-weather {
+	width: 100%;
+}
+
+#map-body {
+	min-height: 1000px;
+}
+
+h1 {
+	font-family: 'Josefin Slab';
+	font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26px;
+
+}
+
+h3 {
+	font-family: 'Josefin Slab';
+	font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26px;
+
+}
+
+.fa-train {
+	color: purple;
+}
+
+h2 {
+	color:purple;
+}
+
+body {
+	background-color: grey;
+	/*line-height: 26px; THIS WAS OUTSIDE THE BRACKETS - WHERE IS IT SUPPOSED TO GO?*/
+}
+
+.Background-image {
+	height: 400
+	width: 100%;
+}
