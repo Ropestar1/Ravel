@@ -1,8 +1,10 @@
 // starting coordinates
+var origin;
 var startLat;
 var startLng;
 
 // ending coordinates
+var destination;
 var endLat;
 var endLng;
 
@@ -22,8 +24,8 @@ $("#submit").on("click", function(event){
 
 	$('#map-header-holder').append('<div class="panel-body" id="map-body"></div>');
 
-	var destination = $("#destination").val().trim();
-	var origin = $("#origin").val().trim();
+	origin = $("#origin").val().trim();
+	destination = $("#destination").val().trim();
 	 // var time = $("#time").val().trim();
 	var queryURL = 
 		"https://cors-anywhere.herokuapp.com/"+
