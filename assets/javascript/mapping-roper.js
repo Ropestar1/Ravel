@@ -18,7 +18,7 @@ $("#submit").on("click", function(event){
 	event.preventDefault();
 
 	// Creates an area to put the googlemaps results
-	$('div.map-results-area').append('<div class="panel panel-primary" id="map-header-holder"></div>');
+	$('div.map-results-area').html('<div class="panel panel-primary" id="map-header-holder"></div>');
 	$('#map-header-holder').html('<div class="panel-heading panel-heading-ravel" id="map-header-text"></div>');
 	$('#map-header-text').html('<h3 class="panel-title"><strong> Map Routes </strong></h3>');
 
@@ -56,15 +56,12 @@ $("#submit").on("click", function(event){
 	});
 });
 
-
-// working on googlemaps api call
-
 function initialize() {
 	directionsDisplay = new google.maps.DirectionsRenderer();
-	var startPoint = new google.maps.LatLng(startLat, startLng);
+	var ucbe = new google.maps.LatLng(37.7918156, -122.3931774);
 	var mapOptions = {
 		zoom: 10,
-		center: startPoint,
+		center: ucbe,
 	}
 
 	//might need to fix line below to take our user input. fix the document.getElementByID
