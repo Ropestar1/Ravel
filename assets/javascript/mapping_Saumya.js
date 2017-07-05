@@ -2,7 +2,7 @@ function calculateRoute(from, to) {
        
         var myOptions = {
           zoom: 10,
-          center: new google.maps.LatLng(37.779173, -121.987324),
+          // center: new google.maps.LatLng(37.779173, -121.987324),
           mapTypeId: google.maps.MapTypeId.ROADMAP
         };
         // Draw the map
