@@ -4,10 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ravel</title>
-
-   
-
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     
@@ -52,7 +48,7 @@
                         
                         <!-- We'll need to figure out what to do with the remaining days. -->
                         <!-- Maybe highlight just the current date so we can keep the table? -->
-                        <table id="weekly-weather">
+                        <table id="weekly-weather" style = "width:100%">
                             <tr class="bordered"></tr>
                                 <!-- CHANGE ID HERE...ids should only be used once in html. Allows jQuery to select individual elements -->
                                 <th id="weather">Monday</th>
@@ -76,7 +72,7 @@
                     <div class="panel-body">
                         <!-- HTML Form for handling the inputs-->
                         <form role="form">
-                            <table id="user-results">
+                            <table id="employees" style = "width:100%">
                                 <tr class="bordered"></tr>
                                     <th>Username<th>
                                     <th>Distance Traveled</th>
@@ -128,11 +124,9 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-sm-12 map-results-area">
+            <div class="col-sm-8 map-results-area">
             </div>
-
-            <div id='elevation_chart'>
-                
+            <div id="right-panel" class="col-sm-4 map-results-area">
             </div>
         </div>
     </div>
@@ -148,19 +142,8 @@
 <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEkAbiwPJDgOUMGzjR-NGNoCLG9Ilptgg&callback=initMap"></script> -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0oMhk60GOJSoK46J8f0dAwghkBwgThl0"></script>
 <!-- Javascript Files -->
-<<<<<<< HEAD
 <script type = "text/javascript" src=weatherinfo.js></script>
-<script type = "text/javascript" src="assets/javascript/mapping-roper.js"></script>
-<script type = "text/javascript" src="assets/javascript/elevation.js"></script>
-
-
-
-
-
-=======
-<script type = "text/javascript" src="assets/javascript/weatherinfo-roper.js"></script>
-<script type = "text/javascript" src="assets/javascript/mapping-roper.js"></script>
->>>>>>> a662fdbb75c56bf5a873df0c61a8fc95104536e8
+<script type = "text/javascript" src="assets/javascript/mappingMashel.js"></script>
 
 </body>
 </html>
