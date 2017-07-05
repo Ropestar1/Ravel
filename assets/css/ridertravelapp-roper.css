@@ -20,7 +20,7 @@
 	background-color: teal;
 }
 
-.current-weather {
+.current-weather, #weekly-weather, #user-results {
 	width: 100%;
 }
 
