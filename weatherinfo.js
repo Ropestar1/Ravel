@@ -1,4 +1,4 @@
-var zipcode = 94568; //this will be an input through googlemaps 
+var zipcode = 94568 //this will be an input through googlemaps 
     var queryURL = "http://api.wunderground.com/api/f865102da28852b3/conditions/q/" + zipcode + ".json";
 
     $.ajax({
