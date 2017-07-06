@@ -1,13 +1,22 @@
 /*Style to fix the issue of text extending past panel length*/
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+  	background-image: url("../images/backgroundMain.jpg");
+}
 .panel-body a {
     word-break:break-all;
 }
 
-#splash-page{
+/*#splash-page{
 	background-image: url("../images/backgroundMain.jpg");
 	height: 1000px;
 
-}
+}*/
 #main h1{
 	color: white;
 	text-align: center;
@@ -18,38 +27,36 @@
 	text-align: center;
 
 }
-hr{
-	margin-top: 10px;
-	margin-bottom: 0px;
-	clear: both;
-	
-}
-#form-input{
-	width:30px;
-	border-color: #ccc;
-	-webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
-	-moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
-	box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
- }
-.form-input{
-	padding-left: 350px;
-}
-.jumbotron h1 {
-	color: teal;
-}
 
-#main-heading {
-	background-image: url("http://4.bp.blogspot.com/-WuEuFYWZhIA/UOc4seMTY-I/AAAAAAAAB-A/YtZAUJ7f68U/s1600/Facebook-Timeline-Profile-Covers-New-York-NYC16.jpg");
+
+.form-input{
+	padding-left: 330px;
 }
+/*.jumbotron h1 {
+	color: teal;
+}*/
+/*#map-header-holder{
+	margin-bottom: 50px;
+}*/
+
+#right-panel{
+    
+    height:500px;
+	overflow: scroll;
+	margin-top: 10px;
+ 
+ }
+
+/*#main-heading {
+	background-image: url("http://4.bp.blogspot.com/-WuEuFYWZhIA/UOc4seMTY-I/AAAAAAAAB-A/YtZAUJ7f68U/s1600/Facebook-Timeline-Profile-Covers-New-York-NYC16.jpg");
+}*/
 
 .panel-heading-ravel {
 	background-color: teal !important;
 	color: white;
 }
 
-#map-header-text{
-	margin: auto;
-}
+
 
 .button-ravel {
 	background-color: teal;
@@ -60,7 +67,9 @@ hr{
 }
 
 #map-body {
-	min-height: 800px;
+	min-height: 500px;
+	margin-bottom: 20px;
+	margin-top: 10px;
 }
 
 h1 {
@@ -92,7 +101,7 @@ h2 {
 }
 
 body {
-	background-color: grey;
+	background-color: white;
 	/*line-height: 26px; THIS WAS OUTSIDE THE BRACKETS - WHERE IS IT SUPPOSED TO GO?*/
 }
 
@@ -105,4 +114,13 @@ body {
 .mapdirections{
 	background-color: white;
 	
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
 }
