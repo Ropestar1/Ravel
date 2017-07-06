@@ -84,6 +84,11 @@ $('#login').on('click', function(event){
         $('#splash-page').hide();
         $('#main-wrapper').show();
         
+        return database.ref(username).once('value').then(function(snapshot) {
+            debugger;
+        });
+
+
         // database.ref('/' + username).set({
         //     routeNameKey: '',
         //     distanceTravelled: 0,
@@ -103,7 +108,7 @@ $("#submit").on("click", function(event){
     routeName = $("#route-name").val().trim();
     origin = $("#origin").val().trim(); //maybe change the variable name
     destination = $("#destination").val().trim(); //maybe change the variable name
-    username = username.toLowerCase();
+
     //GOOGLEMAPS API CALLS
     var queryURL = 
         "https://cors-anywhere.herokuapp.com/"+
