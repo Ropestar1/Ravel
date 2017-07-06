@@ -1,6 +1,6 @@
 /*Style to fix the issue of text extending past panel length*/
 .panel-body a {
-    word-break:break-all
+    word-break:break-all;
 }
 
 .jumbotron h1 {
@@ -61,6 +61,7 @@ body {
 	/*line-height: 26px; THIS WAS OUTSIDE THE BRACKETS - WHERE IS IT SUPPOSED TO GO?*/
 }
 
+/*Probably get rid of this class, because name could be easily confused.*/
 .Background-image {
 	height: 400
 	width: 100%;
