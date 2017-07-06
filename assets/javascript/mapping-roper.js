@@ -38,7 +38,7 @@ database.ref().on("value", function(snapshot) {
 	console.log("this is the snapshot: " + snapshot)
     
     userList = Object.keys(snapshot.val());
-    debugger;
+    // debugger;
 	// console.log(snapshot)
 	// Print the initial data to the console.
 	// console.log(snapshot.val());
@@ -71,12 +71,12 @@ $('#new-user').on('click', function(event){
         $('#splash-page').hide();
         $('#main-wrapper').show();
 
-        database.ref('/' + username).set({
-            routeNameKey: '',
-            distanceTravelled: 0,
-            timeTaken: 0,
-            avgSpeed : 0
-        });
+        // database.ref('/' + username).set({
+        //     routeNameKey: '',
+        //     distanceTravelled: 0,
+        //     timeTaken: 0,
+        //     avgSpeed : 0
+        // });
         
         initialize();
     }
@@ -98,12 +98,12 @@ $('#login').on('click', function(event){
         $('#splash-page').hide();
         $('#main-wrapper').show();
         
-        database.ref('/' + username).set({
-            routeNameKey: '',
-            distanceTravelled: 0,
-            timeTaken: 0,
-            avgSpeed : 0
-        });
+        // database.ref('/' + username).set({
+        //     routeNameKey: '',
+        //     distanceTravelled: 0,
+        //     timeTaken: 0,
+        //     avgSpeed : 0
+        // });
 
         initialize();
     }
@@ -139,17 +139,26 @@ $("#submit").on("click", function(event){
         endLat = response.routes[0].legs[0].end_location.lat;
         endLng = response.routes[0].legs[0].end_location.lng;
 
-        distance = response.
+        distance = response.routes[0].legs[0].distance.value; //gives the value in meters...I think
+        
+        //USE AN IF CONDITIONAL FOR IF THIS FILEPATH DOESN'T EXIST, SET ONE. ELSE DON'T DO ANYTHING????
+        // if () {
+            database.ref(username + '/' + routeName).set({
+                distanceTravelled: distance,
+                timeTaken: 'tbd',
+                avgSpeed : 'tbd',
+            });
+            debugger;
+        // }
 
-        calcRoute();
+        // else {
+        //     alert(route already exists);
+        // }
     });
 
-    database.ref('/' + username).update({
-        routeNameKey: routeName,
-        distanceTravelled: distance,
-    });
+    calcRoute();
 
-    // Change the HTML
+        // Change the HTML
     // var row = $("<tr>");
     // row.append("<td>" +  snapshot.val().routeName + "</td>")
     // row.append("<td>" +  snapshot.val().distanceTravelled + "</td>");
