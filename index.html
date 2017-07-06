@@ -1,101 +1,161 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title></title>
-	<!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ravel</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">    
     <!-- Bootswatch Styling for Improving the Aesthetics -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/flatly/bootstrap.min.css">
     <!-- Font Awesome CSS Icons (For cool glyphicons) -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <!-- Style to fix the issue of text extending past panel length -->
-    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-<link rel="stylesheet" type="text/css" href="ridertravelapp.css">
-<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="ravel.css">
-  <style>
-        .panel-body a 
-        {
-            word-break:break-all
-        }
-
-    </style>
-
+    <!-- Below path links to googlefont lobster -->
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <!-- CHANGE BELOW LINE BACK TO PROJECT PATH AFTER TESTING -->
+    <link rel="stylesheet" type="text/css" href="assets/css/ridertravelapp-roper.css">
 </head>
+
 <body>
-<ul class="nav nav-pills">
-  <li role="presentation" class="active"><a href="#">Home</a></li>
-  <li role="presentation"><a href="#">Profile</a></li>
-  <li role="presentation"><a href="#">Messages</a></li>
-</ul>
-<br>
-<div class="container">
-	<div class="jumbotron">
-  		<h1 class="display-3">Welcome to Ravel</h1>
-  			<p class="lead">Ravel is a bike friendly app design to create the best and easiest route for riders, while stil being efficent. </p>
-  		<hr class="my-4">
-  			<p>It uses google maps to find a route that best suits your needs.</p>
-  			<p class="lead">
-    	<a class="btn btn-primary btn-lg" href="#" role="button">Sign up</a>
-  			</p>
-	</div>
-</div>
-<br>
-<br>
-<div class="container">
-<div class="row">
-<div class="col-md-12">
-<h3 style="text-align: center;">If you're active, Ravel was made for you. Our mobile app and website enhance the experience of sport and connect millions of athletes from around the world. We're the social network for those who strive. Join us.</h3>
-
-</div>
-
-
-
-    <div class="container">
-  <h2 style="color:black">Ravel rides</h2>  
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-      <div class="item active">
-        <img src="https://www.ghs.org/wp-content/uploads/2010/10/iStock_000067146765_Medium.jpg" alt="bikes1" style="width:100%;">
-      </div>
-
-      <div class="item">
-        <img src="http://www.cyclenorth.org.uk/wp-content/uploads/2016/05/CYCLING.jpg" alt="bikes2" style="width:100%;">
-      </div>
-    
-      <div class="item">
-        <img src="http://s3-eu-west-1.amazonaws.com/bikesoup-magazine-image-assets/2015/11/27114555/trek3-1024x576.jpg" alt="bike3" style="width:100%;">
-      </div>
+    <div id="splash-page">
+        <form role="form">
+            <label for="username-input">Username</label>
+            <input type="text" class="form-control" id="username-input">
+            <button type="submit" class="btn btn-default button-ravel" id="login">Log In</button>
+            <button type="submit" class="btn btn-default button-ravel" id="new-user">New User</button>
+        </form>
     </div>
 
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
-</div>
-<script src="assets/javascript/weatherinfo.js"></script>
+    <div id="main-wrapper">
+        <div class="jumbotron" id="main-heading">
+            <h1 class="text-center"><strong><h1> Ravel App </h1></strong></h1>
+        </div>
 
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading panel-heading-ravel">
+                            <h3 class="panel-title"><strong>  Weather </strong></h3>
+                        </div>
+                        
+                        <div class="panel-body">
+                            <!-- HTML Form for handling the inputs-->
+                            <form role="form">
+                                <table class="current-weather">
+                                    <tr class="bordered"></tr>
+                                        <th>Today's Weather<th>
+                                        <th id="weather"></th>
+                                    </tr>
+                                </table>
+                            </form>
+                            
+                            <!-- HTML Form for handling the inputs-->
+                            <form role="form">
+                            
+                            <!-- We'll need to figure out what to do with the remaining days. -->
+                            <!-- Maybe highlight just the current date so we can keep the table? -->
+                            <table id="weekly-weather" style = "width:100%">
+                                <tr class="bordered"></tr>
+                                    <!-- CHANGE ID HERE...ids should only be used once in html. Allows jQuery to select individual elements -->
+                                    <th id="weather"></th>
+                                    
+                                </tr>
+                            </table>
+                        </div>
 
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="panel panel-primary" ">
+                        <div class="panel-heading panel-heading-ravel">
+                            <h3 class="panel-title"><strong><span class="username-swap"></span>'s Travel</strong></h3>
+                        </div>
+                        <div class="panel-body">
+                            <!-- HTML Form for handling the inputs-->
+                            <form role="form">
+                            <label for="search">  Start Point</label>
+                            <input type="text" class="form-control" id="origin">
+                            <br>
+                            <label for="search">   End Point</label>
+                            <input type="text" class="form-control" id="destination">
+                            <br>
+                            <label for="search">   Name Your Route </label>
+                            <input type="text" class="form-control" id="route-name">
+                            <br>
+
+                            <button type="submit" class="btn btn-default button-ravel" id="submit"> Submit</button>
+                                
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <br>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading panel-heading-ravel">
+                            <h3 class="panel-title"><strong><span class="username-swap"></span>'s Stats</strong></h3>
+                        </div>
+
+                        <div class="form-group" style="margin:20px;">
+                          
+                            <table id="employees" style = "width:100%">
+                                    <tr class="bordered"></tr>
+                                        <th>Route Name<th>
+                                        <th>Distance Traveled</th>
+                                        <th>Average Speed</th>
+                                        <th>Time Traveled <input>
+                                        <button type="submit" class="btn btn-default button-ravel" id="submit"> Submit</button></th>  
+                                    </tr>
+
+                                    
+                                </table>
+                            
+                            <br>
+                           <!--  <button type="submit" class="btn btn-default button-ravel" id="submit"> Submit</button> -->
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 map-results-area">
+                    <div class="row">
+                        <div class="panel panel-primary" id="map-header-holder">
+                            <div class="panel-heading panel-heading-ravel" id="map-header-text">
+                                <h3 class="panel-title"><strong> Map Routes </strong></h3>
+                            </div>
+                        <div class="col-sm-8 panel-body" id="map-body">
+                        </div>
+                        <div class="col-sm-4 map-results-area mapdirections" id="right-panel">
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- SCRIPTS BELOW -->
+<!-- jQuery JS -->
+<script src="https://code.jquery.com/jquery.js"></script>
+<!-- firebase link -->
+<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+<!-- moment.js link -->
+<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+<!-- GOOGLE MAPS API AND KEY -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0oMhk60GOJSoK46J8f0dAwghkBwgThl0"></script>
+<!-- Javascript Files -->
+<script type = "text/javascript" src="assets/javascript/weatherinfo-roper.js"></script>
+<script type = "text/javascript" src="assets/javascript/mapping-roper.js"></script>
 
 </body>
 </html>
