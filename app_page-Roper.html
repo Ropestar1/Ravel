@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ravel</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">    
     <!-- Bootswatch Styling for Improving the Aesthetics -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/flatly/bootstrap.min.css">
     <!-- Font Awesome CSS Icons (For cool glyphicons) -->
@@ -18,118 +17,127 @@
 </head>
 
 <body>
-    <div class="container">
+    <div id="splash-page">
+        <form role="form">
+            <label for="username-input">Username</label>
+            <input type="text" class="form-control" id="username-input">
+            <button type="submit" class="btn btn-default button-ravel" id="login">Log In</button>
+            <button type="submit" class="btn btn-default button-ravel" id="new-user">New User</button>
+        </form>
+    </div>
+
+    <div id="main-wrapper">
         <div class="jumbotron" id="main-heading">
             <h1 class="text-center"><strong><h1> Ravel App </h1></strong></h1>
         </div>
-    </div>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3">
-                <div class="panel panel-primary">
-                    <div class="panel-heading panel-heading-ravel">
-                        <h3 class="panel-title"><strong>  Weather </strong></h3>
-                    </div>
-                    
-                    <div class="panel-body">
-                        <!-- HTML Form for handling the inputs-->
-                        <form role="form">
-                            <table class="current-weather">
-                                <tr class="bordered"></tr>
-                                    <th>Today's Weather<th>
-                                    <th id="weather"></th>
-                                </tr>
-                            </table>
-                        </form>
-                        
-                        <!-- HTML Form for handling the inputs-->
-                        <form role="form">
-                        
-                        <!-- We'll need to figure out what to do with the remaining days. -->
-                        <!-- Maybe highlight just the current date so we can keep the table? -->
-                        <table id="weekly-weather" style = "width:100%">
-                            <tr class="bordered"></tr>
-                                <!-- CHANGE ID HERE...ids should only be used once in html. Allows jQuery to select individual elements -->
-                                <th id="weather"></th>
-                                
-                            </tr>
-                        </table>
-                    </div>
-
-                </div>
-            </div>
-            <div class="col-md-9">
-                <div class="panel panel-primary" ">
-                    <div class="panel-heading panel-heading-ravel">
-                        <h3 class="panel-title"><strong></i>  Rider Travel</strong></h3>
-                    </div>
-                    <div class="panel-body">
-                        <!-- HTML Form for handling the inputs-->
-                        <form role="form">
-                        <label for="search">  Start Point</label>
-                        <input type="text" class="form-control" id="origin">
-                        <br>
-                        <label for="search">   End Point</label>
-                        <input type="text" class="form-control" id="destination">
-                        <br>
-                        <label for="search">   Name Your Route </label>
-                        <input type="text" class="form-control" id="routename">
-                        <br>
-
-                         <button type="submit" class="btn btn-default button-ravel" id="submit"> Submit</button>
-                            
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <br>
-                <div class="panel panel-primary">
-                    <div class="panel-heading panel-heading-ravel">
-                        <h3 class="panel-title"><strong> Rider Info </strong></h3>
-                    </div>
-
-                    <div class="form-group" style="margin:20px;">
-                      
-                        <table id="employees" style = "width:100%">
-                                <tr class="bordered"></tr>
-                                    <th>Route Name<th>
-                                    <th>Distance Traveled</th>
-                                    <th>Average Speed</th>
-                                    <th>Time Traveled <input>
-                                    <button type="submit" class="btn btn-default button-ravel" id="submit"> Submit</button></th>  
-                                </tr>
-
-                                
-                            </table>
-                        
-                        <br>
-                       <!--  <button type="submit" class="btn btn-default button-ravel" id="submit"> Submit</button> -->
-                        <br>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 map-results-area">
-                <div class="row">
-                    <div class="panel panel-primary" id="map-header-holder">
-                        <div class="panel-heading panel-heading-ravel" id="map-header-text">
-                            <h3 class="panel-title"><strong> Map Routes </strong></h3>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading panel-heading-ravel">
+                            <h3 class="panel-title"><strong>  Weather </strong></h3>
                         </div>
-                    <div class="col-sm-8 panel-body" id="map-body">
+                        
+                        <div class="panel-body">
+                            <!-- HTML Form for handling the inputs-->
+                            <form role="form">
+                                <table class="current-weather">
+                                    <tr class="bordered"></tr>
+                                        <th>Today's Weather<th>
+                                        <th id="weather"></th>
+                                    </tr>
+                                </table>
+                            </form>
+                            
+                            <!-- HTML Form for handling the inputs-->
+                            <form role="form">
+                            
+                            <!-- We'll need to figure out what to do with the remaining days. -->
+                            <!-- Maybe highlight just the current date so we can keep the table? -->
+                            <table id="weekly-weather" style = "width:100%">
+                                <tr class="bordered"></tr>
+                                    <!-- CHANGE ID HERE...ids should only be used once in html. Allows jQuery to select individual elements -->
+                                    <th id="weather"></th>
+                                    
+                                </tr>
+                            </table>
+                        </div>
+
                     </div>
-                    <div class="col-sm-4 map-results-area mapdirections" id="right-panel">
+                </div>
+                <div class="col-md-9">
+                    <div class="panel panel-primary" ">
+                        <div class="panel-heading panel-heading-ravel">
+                            <h3 class="panel-title"><strong><span class="username-swap"></span>'s Travel</strong></h3>
+                        </div>
+                        <div class="panel-body">
+                            <!-- HTML Form for handling the inputs-->
+                            <form role="form">
+                            <label for="search">  Start Point</label>
+                            <input type="text" class="form-control" id="origin">
+                            <br>
+                            <label for="search">   End Point</label>
+                            <input type="text" class="form-control" id="destination">
+                            <br>
+                            <label for="search">   Name Your Route </label>
+                            <input type="text" class="form-control" id="route-name">
+                            <br>
+
+                            <button type="submit" class="btn btn-default button-ravel" id="submit"> Submit</button>
+                                
+                            </form>
+                        </div>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <br>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading panel-heading-ravel">
+                            <h3 class="panel-title"><strong><span class="username-swap"></span>'s Stats</strong></h3>
+                        </div>
+
+                        <div class="form-group" style="margin:20px;">
+                          
+                            <table id="employees" style = "width:100%">
+                                    <tr class="bordered"></tr>
+                                        <th>Route Name<th>
+                                        <th>Distance Traveled</th>
+                                        <th>Average Speed</th>
+                                        <th>Time Traveled <input>
+                                        <button type="submit" class="btn btn-default button-ravel" id="submit"> Submit</button></th>  
+                                    </tr>
+
+                                    
+                                </table>
+                            
+                            <br>
+                           <!--  <button type="submit" class="btn btn-default button-ravel" id="submit"> Submit</button> -->
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 map-results-area">
+                    <div class="row">
+                        <div class="panel panel-primary" id="map-header-holder">
+                            <div class="panel-heading panel-heading-ravel" id="map-header-text">
+                                <h3 class="panel-title"><strong> Map Routes </strong></h3>
+                            </div>
+                        <div class="col-sm-8 panel-body" id="map-body">
+                        </div>
+                        <div class="col-sm-4 map-results-area mapdirections" id="right-panel">
+                        </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -144,10 +152,9 @@
 <!-- moment.js link -->
 <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 <!-- GOOGLE MAPS API AND KEY -->
-<!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEkAbiwPJDgOUMGzjR-NGNoCLG9Ilptgg&callback=initMap"></script> -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0oMhk60GOJSoK46J8f0dAwghkBwgThl0"></script>
 <!-- Javascript Files -->
-<script type = "text/javascript" src=weatherinfo.js></script>
+<script type = "text/javascript" src="assets/javascript/weatherinfo-roper.js"></script>
 <script type = "text/javascript" src="assets/javascript/mapping-roper.js"></script>
 
 </body>
