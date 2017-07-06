@@ -12,11 +12,7 @@ body {
     word-break:break-all;
 }
 
-/*#splash-page{
-	background-image: url("../images/backgroundMain.jpg");
-	height: 1000px;
 
-}*/
 #main h1{
 	color: white;
 	text-align: center;
@@ -30,7 +26,7 @@ body {
 
 
 .form-input{
-	padding-left: 330px;
+	padding-left: 400px;
 }
 /*.jumbotron h1 {
 	color: teal;
@@ -44,8 +40,17 @@ body {
     height:500px;
 	overflow: scroll;
 	margin-top: 10px;
+	margin-left: 5px;
+	width: 350px;
  
  }
+
+#map-header-holder{
+	width:95%;
+	margin-left: 30px;
+}
+
+
 
 /*#main-heading {
 	background-image: url("http://4.bp.blogspot.com/-WuEuFYWZhIA/UOc4seMTY-I/AAAAAAAAB-A/YtZAUJ7f68U/s1600/Facebook-Timeline-Profile-Covers-New-York-NYC16.jpg");
@@ -54,6 +59,7 @@ body {
 .panel-heading-ravel {
 	background-color: teal !important;
 	color: white;
+
 }
 
 
@@ -70,6 +76,8 @@ body {
 	min-height: 500px;
 	margin-bottom: 20px;
 	margin-top: 10px;
+	margin-left: 10px;
+
 }
 
 h1 {
