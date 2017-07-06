@@ -3,6 +3,37 @@
     word-break:break-all;
 }
 
+#splash-page{
+	background-image: url("../images/backgroundMain.jpg");
+	height: 1000px;
+
+}
+#main h1{
+	color: white;
+	text-align: center;
+}
+
+#splash-page{
+	height: 300px;
+	text-align: center;
+
+}
+hr{
+	margin-top: 10px;
+	margin-bottom: 0px;
+	clear: both;
+	
+}
+#form-input{
+	width:30px;
+	border-color: #ccc;
+	-webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+	-moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+	box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+ }
+.form-input{
+	padding-left: 350px;
+}
 .jumbotron h1 {
 	color: teal;
 }
@@ -14,6 +45,10 @@
 .panel-heading-ravel {
 	background-color: teal !important;
 	color: white;
+}
+
+#map-header-text{
+	margin: auto;
 }
 
 .button-ravel {
