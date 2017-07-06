@@ -125,7 +125,7 @@ $("#submit").on("click", function(event){
         endLat = response.routes[0].legs[0].end_location.lat;
         endLng = response.routes[0].legs[0].end_location.lng;
 
-        distance = response.routes[0].legs[0].distance.value; //gives the value in meters...I think
+        distance = (response.routes[0].legs[0].distance.value) / 1609.34 ; //converts meters into miles
         
         //USE AN IF CONDITIONAL FOR IF THIS FILEPATH DOESN'T EXIST, SET ONE. ELSE DON'T DO ANYTHING????
         // if () {
