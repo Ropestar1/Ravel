@@ -15,6 +15,7 @@ firebase.initializeApp(config);
 var database = firebase.database();
 var routeName;
 var username;
+var userList = [];
 // FIREBASE Variables
 
 // starting coordinates
@@ -35,7 +36,9 @@ var map;
 
 database.ref().on("value", function(snapshot) {
 	console.log("this is the snapshot: " + snapshot)
-    // debugger;
+    
+    userList = Object.keys(snapshot.val());
+    debugger;
 	// console.log(snapshot)
 	// Print the initial data to the console.
 	// console.log(snapshot.val());
@@ -53,49 +56,67 @@ database.ref().on("value", function(snapshot) {
 });
 
 $('#new-user').on('click', function(event){
+    // LOWERCASE THE INPUT
+    // MAKE SURE NO SPACES OR SPECIAL CHARACTERS
     event.preventDefault();
-    $('#splash-page').hide();
-    $('#main-wrapper').show();
     username = $('#username-input').val().trim();
-    console.log(username);
-    initialize();
-    // add below code to the button click for the log-in information on splash page for intitiating
-    // database.ref('/' + username).update({
-    //     routeNameKey: routeName,
-    //     distanceTravelled: distance,
-    //     timeTaken: 0,
-    //     avgSpeed : 0
-    // });
+    
+    if (userList.length > 0 && userList.indexOf(username) >= 0) {
+        // USE DIFFERENT WAY TO OUTPUT ERROR
+        alert('Username exists, please use the "Log In" button.');
+    }
+
+    else {
+        $('.username-swap').text(username);
+        $('#splash-page').hide();
+        $('#main-wrapper').show();
+
+        database.ref('/' + username).set({
+            routeNameKey: '',
+            distanceTravelled: 0,
+            timeTaken: 0,
+            avgSpeed : 0
+        });
+        
+        initialize();
+    }
 });
 
 $('#login').on('click', function(event){
+    // LOWERCASE THE INPUT
+    // MAKE SURE NO SPACES OR SPECIAL CHARACTERS
     event.preventDefault();
-    $('#splash-page').hide();
-    $('#main-wrapper').show();
     username = $('#username-input').val().trim();
-    console.log(username);
-    initialize();
-    // add below code to the button click for the log-in information on splash page for intitiating
-    // database.ref('/' + username).update({
-    //     routeNameKey: routeName,
-    //     distanceTravelled: distance,
-    //     timeTaken: 0,
-    //     avgSpeed : 0
-    // });
+    
+    if (userList.length >= 0 && userList.indexOf(username) === -1) {
+        // USE DIFFERENT WAY TO OUTPUT ERROR
+        alert('Username does not exist. Please use the "New User" button.');
+    }
+
+    else {
+        $('.username-swap').text(username);
+        $('#splash-page').hide();
+        $('#main-wrapper').show();
+        
+        database.ref('/' + username).set({
+            routeNameKey: '',
+            distanceTravelled: 0,
+            timeTaken: 0,
+            avgSpeed : 0
+        });
+
+        initialize();
+    }
 });
 
 
 // when submit button is clicked
 $("#submit").on("click", function(event){
     event.preventDefault();
-
-    username = 'Roper'; //remove when splash page is up
     
     routeName = $("#route-name").val().trim();
-    // console.log("username is : "+ username);
-    // console.log("routeName is : "+ routeName);
-    origin = $("#origin").val().trim();
-    destination = $("#destination").val().trim();
+    origin = $("#origin").val().trim(); //maybe change the variable name
+    destination = $("#destination").val().trim(); //maybe change the variable name
    
     //GOOGLEMAPS API CALLS
     var queryURL = 
@@ -112,7 +133,6 @@ $("#submit").on("click", function(event){
         dataType : 'json'
 
     }).done(function(response){
-        // debugger;
         startLat = response.routes[0].legs[0].start_location.lat;
         startLng = response.routes[0].legs[0].start_location.lng;
 
