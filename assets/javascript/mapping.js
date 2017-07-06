@@ -46,8 +46,6 @@ database.ref().on("value", function(snapshot) {
 });
 
 $('#new-user').on('click', function(event){
-    // LOWERCASE THE INPUT
-    // MAKE SURE NO SPACES OR SPECIAL CHARACTERS
     event.preventDefault();
     username = $('#username-input').val().trim();
     
@@ -73,8 +71,6 @@ $('#new-user').on('click', function(event){
 });
 
 $('#login').on('click', function(event){
-    // LOWERCASE THE INPUT ?
-    // MAKE SURE NO SPACES OR SPECIAL CHARACTERS ?
     event.preventDefault();
     username = $('#username-input').val().trim();
     
@@ -107,7 +103,7 @@ $("#submit").on("click", function(event){
     routeName = $("#route-name").val().trim();
     origin = $("#origin").val().trim(); //maybe change the variable name
     destination = $("#destination").val().trim(); //maybe change the variable name
-   
+    username = username.toLowerCase();
     //GOOGLEMAPS API CALLS
     var queryURL = 
         "https://cors-anywhere.herokuapp.com/"+
