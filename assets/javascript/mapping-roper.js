@@ -1,4 +1,3 @@
-// FIREBASE
 // Initialize Firebase
 var config = {
     apiKey: "AIzaSyBGKxL60DKgOYk5ZXDQZuv_qJ6h_ptZaf0",
@@ -11,12 +10,11 @@ var config = {
 
 firebase.initializeApp(config);
 
-// FIREBASE CUSTOMIZATIONS
+// firebase variables
 var database = firebase.database();
 var routeName;
 var username;
 var userList = [];
-// FIREBASE Variables
 
 // starting coordinates
 var origin;
@@ -27,6 +25,7 @@ var startLng;
 var destination;
 var endLat;
 var endLng;
+
 var distance;
 
 // google documentation had these added
@@ -38,17 +37,8 @@ database.ref().on("value", function(snapshot) {
 	console.log("this is the snapshot: " + snapshot)
     
     userList = Object.keys(snapshot.val());
+    // routesList = Object.keys(snapshot.val());
     // debugger;
-	// console.log(snapshot)
-	// Print the initial data to the console.
-	// console.log(snapshot.val());
-	// Log the value of the various properties
-	// console.log(snapshot.val().username);
-	// console.log(snapshot.val().routeName);
-	// console.log(snapshot.val().distanceTravelled);
-	// console.log(snapshot.val().time);
-	// console.log(snapshot.val().speed);
-
 
 	// If any errors are experienced, log them to console.
 	}, function(errorObject) {
@@ -83,8 +73,8 @@ $('#new-user').on('click', function(event){
 });
 
 $('#login').on('click', function(event){
-    // LOWERCASE THE INPUT
-    // MAKE SURE NO SPACES OR SPECIAL CHARACTERS
+    // LOWERCASE THE INPUT ?
+    // MAKE SURE NO SPACES OR SPECIAL CHARACTERS ?
     event.preventDefault();
     username = $('#username-input').val().trim();
     
@@ -158,7 +148,7 @@ $("#submit").on("click", function(event){
 
     calcRoute();
 
-        // Change the HTML
+    // Change the HTML
     // var row = $("<tr>");
     // row.append("<td>" +  snapshot.val().routeName + "</td>")
     // row.append("<td>" +  snapshot.val().distanceTravelled + "</td>");
@@ -175,16 +165,11 @@ function initialize() {
         center: ucbe,
     }
 
-    //might need to fix line below to take our user input. fix the document.getElementByID
     map = new google.maps.Map(document.getElementById('map-body'), mapOptions);
     directionsDisplay.setMap(map);
 }
 
 function calcRoute() {
-  //origin already set in variable on click. see origin
-    // var start = document.getElementById('start').value;
-  // destination already set in variable on click. see destination
-    // var end = document.getElementById('end').value;
   
   var request = {
     origin: origin, //might want to use a different variable name
@@ -202,5 +187,3 @@ function calcRoute() {
 }
 
 $('#main-wrapper').hide();
-
-
