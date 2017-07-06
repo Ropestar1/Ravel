@@ -26,6 +26,7 @@ var startLng;
 var destination;
 var endLat;
 var endLng;
+var distance;
 
 // google documentation had these added
 var directionsDisplay;
@@ -34,9 +35,10 @@ var map;
 
 database.ref().on("value", function(snapshot) {
 	console.log("this is the snapshot: " + snapshot)
-	console.log(snapshot)
+    // debugger;
+	// console.log(snapshot)
 	// Print the initial data to the console.
-	console.log(snapshot.val());
+	// console.log(snapshot.val());
 	// Log the value of the various properties
 	// console.log(snapshot.val().username);
 	// console.log(snapshot.val().routeName);
@@ -50,33 +52,51 @@ database.ref().on("value", function(snapshot) {
 		console.log("The read failed: " + errorObject.code);
 });
 
+$('#new-user').on('click', function(event){
+    event.preventDefault();
+    $('#splash-page').hide();
+    $('#main-wrapper').show();
+    username = $('#username-input').val().trim();
+    console.log(username);
+    initialize();
+    // add below code to the button click for the log-in information on splash page for intitiating
+    // database.ref('/' + username).update({
+    //     routeNameKey: routeName,
+    //     distanceTravelled: distance,
+    //     timeTaken: 0,
+    //     avgSpeed : 0
+    // });
+});
+
+$('#login').on('click', function(event){
+    event.preventDefault();
+    $('#splash-page').hide();
+    $('#main-wrapper').show();
+    username = $('#username-input').val().trim();
+    console.log(username);
+    initialize();
+    // add below code to the button click for the log-in information on splash page for intitiating
+    // database.ref('/' + username).update({
+    //     routeNameKey: routeName,
+    //     distanceTravelled: distance,
+    //     timeTaken: 0,
+    //     avgSpeed : 0
+    // });
+});
+
+
 // when submit button is clicked
 $("#submit").on("click", function(event){
     event.preventDefault();
 
-    username = 'Roper'; //$("#name").val().trim();
+    username = 'Roper'; //remove when splash page is up
     
     routeName = $("#route-name").val().trim();
     // console.log("username is : "+ username);
     // console.log("routeName is : "+ routeName);
     origin = $("#origin").val().trim();
     destination = $("#destination").val().trim();
-    
-    database.ref('/' + username).set({
-	    // username: username,
-	    namedRoute: routeName,
-	    distanceTravelled : 5000, //distance,
-	    timeTaken : 1000, //time,
-	    // speed : speed
-  	});
-
-  	// Change the HTML
-	// var row = $("<tr>");
-	// row.append("<td>" +  snapshot.val().routeName + "</td>")
-	// row.append("<td>" +  snapshot.val().distanceTravelled + "</td>");
-	// row.append("<td>" +  snapshot.val().speed + "</td>");
-	// row.append("<td>" +  snapshot.val().time + "</td>");
-
+   
     //GOOGLEMAPS API CALLS
     var queryURL = 
         "https://cors-anywhere.herokuapp.com/"+
@@ -99,8 +119,22 @@ $("#submit").on("click", function(event){
         endLat = response.routes[0].legs[0].end_location.lat;
         endLng = response.routes[0].legs[0].end_location.lng;
 
+        distance = response.
+
         calcRoute();
     });
+
+    database.ref('/' + username).update({
+        routeNameKey: routeName,
+        distanceTravelled: distance,
+    });
+
+    // Change the HTML
+    // var row = $("<tr>");
+    // row.append("<td>" +  snapshot.val().routeName + "</td>")
+    // row.append("<td>" +  snapshot.val().distanceTravelled + "</td>");
+    // row.append("<td>" +  snapshot.val().speed + "</td>");
+    // row.append("<td>" +  snapshot.val().time + "</td>");
 });
 
 
@@ -138,4 +172,6 @@ function calcRoute() {
   directionsDisplay.setPanel(document.getElementById('right-panel'))
 }
 
-initialize();
+$('#main-wrapper').hide();
+
+
