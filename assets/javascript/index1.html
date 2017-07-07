@@ -55,7 +55,7 @@
    
 
     <div id="main-wrapper">
-        <div id="main-heading">
+        <div class="jumbotron" id="main-heading">
             <h1 class="text-center"><strong><h1> Ravel App </h1></strong></h1>
         </div>
 
@@ -133,6 +133,7 @@
                         <div class="form-group" style="margin: 20px;">
                           
                             <table id="user-stats" style = "width:100%">
+                             <thead>
                                     <tr class="bordered"></tr>
                                         <th>Route Name<th>
                                         <th>Distance Traveled</th>
@@ -140,7 +141,10 @@
                                         <th>Time Traveled <input>
                                         <button type="submit" class="btn btn-default button-ravel" id="submit"> Submit</button></th>  
                                     </tr>
-                                
+                                    </thead>
+                              <tbody id="user-data">
+                                  
+                              </tbody>      
 
                                     
                                 </table>
@@ -186,10 +190,6 @@
 <!-- Javascript Files -->
 <script type = "text/javascript" src="assets/javascript/weatherinfo.js"></script>
 <script type = "text/javascript" src="assets/javascript/mapping.js"></script>
-<footer class="footer " >
-      <div class="container">
-        <p class="text-muted">Place sticky footer content here.</p>
-      </div>
-    </footer>
+
 </body>
 </html>
