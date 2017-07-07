@@ -46,6 +46,8 @@ database.ref().on("value", function(snapshot) {
 });
 
 $('#new-user').on('click', function(event){
+    // LOWERCASE THE INPUT
+    // MAKE SURE NO SPACES OR SPECIAL CHARACTERS
     event.preventDefault();
     username = $('#username-input').val().trim();
     
@@ -71,6 +73,8 @@ $('#new-user').on('click', function(event){
 });
 
 $('#login').on('click', function(event){
+    // LOWERCASE THE INPUT ?
+    // MAKE SURE NO SPACES OR SPECIAL CHARACTERS ?
     event.preventDefault();
     username = $('#username-input').val().trim();
     
@@ -84,11 +88,6 @@ $('#login').on('click', function(event){
         $('#splash-page').hide();
         $('#main-wrapper').show();
         
-        return database.ref(username).once('value').then(function(snapshot) {
-            // debugger;
-        });
-
-
         // database.ref('/' + username).set({
         //     routeNameKey: '',
         //     distanceTravelled: 0,
@@ -108,7 +107,7 @@ $("#submit").on("click", function(event){
     routeName = $("#route-name").val().trim();
     origin = $("#origin").val().trim(); //maybe change the variable name
     destination = $("#destination").val().trim(); //maybe change the variable name
-
+   
     //GOOGLEMAPS API CALLS
     var queryURL = 
         "https://cors-anywhere.herokuapp.com/"+
@@ -130,7 +129,7 @@ $("#submit").on("click", function(event){
         endLat = response.routes[0].legs[0].end_location.lat;
         endLng = response.routes[0].legs[0].end_location.lng;
 
-        distance = (response.routes[0].legs[0].distance.value) / 1609.34 ; //converts meters into miles
+        distance = response.routes[0].legs[0].distance.value; //gives the value in meters...I think
         
         //USE AN IF CONDITIONAL FOR IF THIS FILEPATH DOESN'T EXIST, SET ONE. ELSE DON'T DO ANYTHING????
         // if () {
@@ -139,7 +138,7 @@ $("#submit").on("click", function(event){
                 timeTaken: 'tbd',
                 avgSpeed : 'tbd',
             });
-            // debugger;
+            debugger;
         // }
 
         // else {

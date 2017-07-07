@@ -1,67 +1,19 @@
 /*Style to fix the issue of text extending past panel length*/
-html {
-  position: relative;
-  min-height: 100%;
-}
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-  /*background-image: url("../images/backgroundMain.jpg");*/
-}
-
-#cityscape {
-	position: absolute;
-	height: 100%;
-	width: 100%;
-	z-index: -1;
-}
-
 .panel-body a {
     word-break:break-all;
 }
 
-
-#main h1{
-	color: white;
-	text-align: center;
-}
-
-#splash-page{
-	height: 300px;
-	text-align: center;
-
-}
-
-
-.form-input{
-	padding-left: 400px;
-}
-/*.jumbotron h1 {
+.jumbotron h1 {
 	color: teal;
-}*/
-/*#map-header-holder{
-	margin-bottom: 50px;
-}*/
+}
 
-#right-panel{
-    
-    height:500px;
-	overflow: scroll;
-	margin-top: 10px;
-	margin-left: 5px;
-	width: 350px;
- 
- }
-
-#map-header-holder{
-	width:95%;
-	margin-left: 30px;
+#main-heading {
+	background-image: url("http://4.bp.blogspot.com/-WuEuFYWZhIA/UOc4seMTY-I/AAAAAAAAB-A/YtZAUJ7f68U/s1600/Facebook-Timeline-Profile-Covers-New-York-NYC16.jpg");
 }
 
 .panel-heading-ravel {
 	background-color: teal !important;
 	color: white;
-
 }
 
 .button-ravel {
@@ -73,14 +25,20 @@ body {
 }
 
 #map-body {
-	min-height: 500px;
-	margin-bottom: 20px;
-	margin-top: 10px;
-	margin-left: 10px;
+	min-height: 800px;
+}
+
+h1 {
+	font-family: 'Josefin Slab';
+	font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26px;
 
 }
 
-h1, h3 {
+h3 {
 	font-family: 'Josefin Slab';
 	font-size: 24px;
 	font-style: normal;
@@ -99,7 +57,8 @@ h2 {
 }
 
 body {
-	background-color: white;
+	background-color: grey;
+	/*line-height: 26px; THIS WAS OUTSIDE THE BRACKETS - WHERE IS IT SUPPOSED TO GO?*/
 }
 
 /*Probably get rid of this class, because name could be easily confused.*/
@@ -108,16 +67,7 @@ body {
 	width: 100%;
 }
 
-.mapdirections {
+.mapdirections{
 	background-color: white;
 	
-}
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  background-color: #f5f5f5;
 }
