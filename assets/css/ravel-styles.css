@@ -6,8 +6,16 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
-  	background-image: url("../images/backgroundMain.jpg");
+  /*background-image: url("../images/backgroundMain.jpg");*/
 }
+
+#cityscape {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	z-index: -1;
+}
+
 .panel-body a {
     word-break:break-all;
 }
@@ -50,19 +58,11 @@ body {
 	margin-left: 30px;
 }
 
-
-
-/*#main-heading {
-	background-image: url("http://4.bp.blogspot.com/-WuEuFYWZhIA/UOc4seMTY-I/AAAAAAAAB-A/YtZAUJ7f68U/s1600/Facebook-Timeline-Profile-Covers-New-York-NYC16.jpg");
-}*/
-
 .panel-heading-ravel {
 	background-color: teal !important;
 	color: white;
 
 }
-
-
 
 .button-ravel {
 	background-color: teal;
@@ -80,17 +80,7 @@ body {
 
 }
 
-h1 {
-	font-family: 'Josefin Slab';
-	font-size: 24px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 500;
-	line-height: 26px;
-
-}
-
-h3 {
+h1, h3 {
 	font-family: 'Josefin Slab';
 	font-size: 24px;
 	font-style: normal;
@@ -110,7 +100,6 @@ h2 {
 
 body {
 	background-color: white;
-	/*line-height: 26px; THIS WAS OUTSIDE THE BRACKETS - WHERE IS IT SUPPOSED TO GO?*/
 }
 
 /*Probably get rid of this class, because name could be easily confused.*/
@@ -119,7 +108,7 @@ body {
 	width: 100%;
 }
 
-.mapdirections{
+.mapdirections {
 	background-color: white;
 	
 }

@@ -17,40 +17,21 @@
 </head>
 
 <body>
-<div id="main">
-    <div class="container">
-         <div class="row">
-    <div id="splash-page">
-        
-           <h1>RAVEL</h1> 
-           <div class="panel-body form-input">
-                        <div class="row vertical-center">
-                         <div class="col-lg-6">
-            <form role="form row">
-             <!-- <label for="username-input">Username</label> -->
-             <input type="text" class="form-control" id="username-input" placeholder="Username">
-            </form>
-            </div>
-            
-            </div>
-            
-            <div class="panel-heading">
-              <div class="col-xs-6">   
-               <button type="submit" class="btn btn-default button-ravel" id="login">Log In</button>
-              
-               
-               <button type="submit" class="btn btn-default button-ravel" id="new-user">New User</button>
-               </div>
-             
-            </div>
-            </div>
-            </div>
-             
-           
-               
- 
-     </div>
+    <div id=cityscape>
+        <img src="assets/images/backgroundMain.jpg" alt="Cityscape image">
     </div>
+
+    <div id="splash-page">
+        <div class="container">
+            <h1>Welcome to Ravel</h1>
+            <div class="text-center"> 
+                <form role="form">
+                    <input type="text" class="form-control" id="username-input" placeholder="Username">
+                </form>
+                <button type="submit" class="btn btn-default button-ravel" id="login">Log In</button>
+                <button type="submit" class="btn btn-default button-ravel" id="new-user">New User</button>
+            </div>
+        </div>
     </div>
    
 
@@ -77,12 +58,7 @@
                                     </tr>
                                 </table>
                             </form>
-                            
-                            <!-- HTML Form for handling the inputs-->
-                            <form role="form">
-                            
-                            <!-- We'll need to figure out what to do with the remaining days. -->
-                            <!-- Maybe highlight just the current date so we can keep the table? -->
+
                             <table id="weekly-weather" style = "width:100%">
                                 <tr class="bordered"></tr>
                                     <!-- CHANGE ID HERE...ids should only be used once in html. Allows jQuery to select individual elements -->
@@ -91,9 +67,9 @@
                                 </tr>
                             </table>
                         </div>
-
                     </div>
                 </div>
+
                 <div class="col-md-9">
                     <div class="panel panel-primary" ">
                         <div class="panel-heading panel-heading-ravel">
@@ -132,21 +108,17 @@
 
                         <div class="form-group" style="margin: 20px;">
                           
-                            <table id="user-stats" style = "width:100%">
-                                    <tr class="bordered"></tr>
-                                        <th>Route Name<th>
-                                        <th>Distance Traveled</th>
-                                        <th>Average Speed</th>
-                                        <th>Time Traveled <input>
-                                        <button type="submit" class="btn btn-default button-ravel" id="submit"> Submit</button></th>  
-                                    </tr>
-                                
-
-                                    
-                                </table>
+                            <table id="user-stats" style ="width:100%;">
+                                <tr class="bordered">
+                                    <th>Route Name<th>
+                                    <th>Distance Traveled</th>
+                                    <th>Average Speed</th>
+                                    <th>Time Traveled</th>
+                                </tr>
+                            </table>
                             
                             <br>
-                           <!--  <button type="submit" class="btn btn-default button-ravel" id="submit"> Submit</button> -->
+                            <!--  <button type="submit" class="btn btn-default button-ravel" id="submit"> Submit</button> -->
                             <br>
                         </div>
                     </div>
@@ -171,8 +143,11 @@
                 </div>
             </div>
         </div>
+
+        <footer class="footer">
+            <p class="text-muted">Place sticky footer content here.</p>
+        </footer>
     </div>
-    
 
 <!-- SCRIPTS BELOW -->
 <!-- jQuery JS -->
@@ -186,10 +161,5 @@
 <!-- Javascript Files -->
 <script type = "text/javascript" src="assets/javascript/weatherinfo.js"></script>
 <script type = "text/javascript" src="assets/javascript/mapping.js"></script>
-<footer class="footer " >
-      <div class="container">
-        <p class="text-muted">Place sticky footer content here.</p>
-      </div>
-    </footer>
 </body>
 </html>

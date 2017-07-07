@@ -85,7 +85,7 @@ $('#login').on('click', function(event){
         $('#main-wrapper').show();
         
         return database.ref(username).once('value').then(function(snapshot) {
-            debugger;
+            // debugger;
         });
 
 
@@ -139,7 +139,7 @@ $("#submit").on("click", function(event){
                 timeTaken: 'tbd',
                 avgSpeed : 'tbd',
             });
-            debugger;
+            // debugger;
         // }
 
         // else {
