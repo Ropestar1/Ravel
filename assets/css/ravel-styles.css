@@ -3,6 +3,13 @@
     word-break:break-all;
 }
 
+#cityscape {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	z-index: -1;
+}
+
 .jumbotron h1 {
 	color: teal;
 }
