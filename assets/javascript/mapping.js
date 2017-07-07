@@ -73,6 +73,7 @@ $('#login').on('click', function(event){
         $('.username-swap').text(username);
         $('#splash-page').hide();
         $('#main-wrapper').show();
+        $('#hidden-form').show();
         initialize();
         
         return database.ref(username).orderByKey().once('value').then(function(snapshot) {
@@ -86,27 +87,32 @@ $('#login').on('click', function(event){
                 var fbDistTrav = childData.distanceTravelled;
                 var fbAvgSpeed = childData.avgSpeed;
                 var fbTime = childData.timeTaken;
-                var timeRecord =
-                    '<td><input type="text" id="time-input"><button type="button" id="time-rec">o</button></td>';
-
+                // var timeRecord =
+                //     '<td><input type="text" id="time-input"><button type="button" id="time-rec">o</button></td>';
                 $('#user-stats').append('<tr id="' + fbRouteName + '"></tr>');
+                $('#' + fbRouteName).append('<td>' + fbStart + '</td>');
+                $('#' + fbRouteName).append('<td>' + fbEnd + '</td>');
+                $('#' + fbRouteName).append('<td>' + fbRouteName + '</td>');
+                $('#' + fbRouteName).append('<td id="temp-distance">' + fbDistTrav + '</td>');
+                $('#' + fbRouteName).append('<td id="swap-speed" data-temp="present">' + fbAvgSpeed + '</td>');
+                $('#' + fbRouteName).append('<td id="time-hold" data-temp="true">' + fbTime + '</td>');
 
-                if (fbTime === 'tbd') {
-                    $('#' + fbRouteName).append('<td>' + fbStart + '</td>');
-                    $('#' + fbRouteName).append('<td>' + fbEnd + '</td>');
-                    $('#' + fbRouteName).append('<td>' + fbRouteName + '</td>');
-                    $('#' + fbRouteName).append('<td id="temp-distance">' + fbDistTrav + '</td>');
-                    $('#' + fbRouteName).append('<td id="swap-speed">' + fbAvgSpeed + '</td>');
-                    $('#' + fbRouteName).append(timeRecord);
-                }
-                else {
-                    $('#' + fbRouteName).append('<td>' + fbStart + '</td>');
-                    $('#' + fbRouteName).append('<td>' + fbEnd + '</td>');
-                    $('#' + fbRouteName).append('<td>' + fbRouteName + '</td>');
-                    $('#' + fbRouteName).append('<td>' + fbDistTrav + '</td>');
-                    $('#' + fbRouteName).append('<td>' + fbAvgSpeed + '</td>');
-                    $('#' + fbRouteName).append('<td>' + fbTime + '</td>');
-                }
+                // if (fbTime === 'tbd') {
+                //     $('#' + fbRouteName).append('<td>' + fbStart + '</td>');
+                //     $('#' + fbRouteName).append('<td>' + fbEnd + '</td>');
+                //     $('#' + fbRouteName).append('<td>' + fbRouteName + '</td>');
+                //     $('#' + fbRouteName).append('<td id="temp-distance">' + fbDistTrav + '</td>');
+                //     $('#' + fbRouteName).append('<td id="swap-speed">' + fbAvgSpeed + '</td>');
+                //     $('#' + fbRouteName).append(timeRecord);
+                // }
+                // else {
+                //     $('#' + fbRouteName).append('<td>' + fbStart + '</td>');
+                //     $('#' + fbRouteName).append('<td>' + fbEnd + '</td>');
+                //     $('#' + fbRouteName).append('<td>' + fbRouteName + '</td>');
+                //     $('#' + fbRouteName).append('<td>' + fbDistTrav + '</td>');
+                //     $('#' + fbRouteName).append('<td>' + fbAvgSpeed + '</td>');
+                //     $('#' + fbRouteName).append('<td>' + fbTime + '</td>');
+                // }
             });
         });    
     }
@@ -154,26 +160,24 @@ $("#submit").on("click", function(event){
     calcRoute();
 });
 
-$(function() {
-    $('button#time-rec').on("click", function(event){
-        event.preventDefault();
-        
-        console.log('clicked');
-        // var minutes = parseInt($('#time-input').val());
-        // var distValue = parseInt($('#temp-distance')).val();
-        // var speedDisplay = ((distValue / minutes) * 60).toFixed(1);
+$('#time-rec').on("click", function(event){
+    event.preventDefault();
+    
+    console.log('clicked');
+    var minutes = parseInt($('#time-input').val());
+    var distValue = parseInt($('#temp-distance').text());
+    var speedDisplay = ((distValue / minutes) * 60).toFixed(0);
 
-        // $('#swap-speed').html('<td>' + speedDisplay + '</td>')
-        // $('#time-input').hide();
-        // $(this).hide();
+    $('#swap-speed').html('<td>' + speedDisplay + '</td>'); //find way to target just the data-value attribute
+    $('#swap-speed').removeAttr('data-value');
 
-        
-        // database.ref(username + '/' + routeName).update({
-        //     timeTaken: minutes,
-        //     avgSpeed : speedDisplay,
-        // });
-
-    });
+    $('#time-hold').html('<td>' + minutes + '</td>'); //find way to target just the data-value attribute
+    $('#time-hold').removeAttr('data-value');
+    
+    // database.ref(username + '/' + routeName).update({
+    //     timeTaken: minutes,
+    //     avgSpeed : speedDisplay,
+    // });
 });
 
 function initialize() {
@@ -206,3 +210,4 @@ function calcRoute() {
 }
 
 $('#main-wrapper').hide();
+$('#hidden-form').hide();
