@@ -88,6 +88,16 @@ $('#login').on('click', function(event){
         $('#splash-page').hide();
         $('#main-wrapper').show();
         
+        return database.ref(username).once('value').then(function(snapshot) {
+            debugger;
+        
+            // var row = $("<tr>");
+            // row.append("<td>" +  snapshot.val().routeName + "</td>")
+            // row.append("<td>" +  snapshot.val().distanceTravelled + "</td>");
+            // row.append("<td>" +  snapshot.val().speed + "</td>");
+            // row.append("<td>" +  snapshot.val().time + "</td>");
+        });
+
         // database.ref('/' + username).set({
         //     routeNameKey: '',
         //     distanceTravelled: 0,
@@ -147,13 +157,6 @@ $("#submit").on("click", function(event){
     });
 
     calcRoute();
-
-    // Change the HTML
-    // var row = $("<tr>");
-    // row.append("<td>" +  snapshot.val().routeName + "</td>")
-    // row.append("<td>" +  snapshot.val().distanceTravelled + "</td>");
-    // row.append("<td>" +  snapshot.val().speed + "</td>");
-    // row.append("<td>" +  snapshot.val().time + "</td>");
 });
 
 
