@@ -87,15 +87,16 @@ $('#login').on('click', function(event){
         $('.username-swap').text(username);
         $('#splash-page').hide();
         $('#main-wrapper').show();
+        initialize();
         
-        return database.ref(username).once('value').then(function(snapshot) {
+        return database.ref(username).orderByKey().once('value').then(function(snapshot) {
             debugger;
-        
-            // var row = $("<tr>");
-            // row.append("<td>" +  snapshot.val().routeName + "</td>")
-            // row.append("<td>" +  snapshot.val().distanceTravelled + "</td>");
-            // row.append("<td>" +  snapshot.val().speed + "</td>");
-            // row.append("<td>" +  snapshot.val().time + "</td>");
+
+            $('#user-stats').append('<tr><td>5</td></tr>');
+            // $('"#' + routeName + '"').append('<td>5</td>');
+            // .append("<td>" +  snapshot.val().distanceTravelled + "</td>");
+            // .append("<td>" +  snapshot.val().speed + "</td>");
+            // .append("<td>" +  snapshot.val().time + "</td>");
         });
 
         // database.ref('/' + username).set({
@@ -105,7 +106,7 @@ $('#login').on('click', function(event){
         //     avgSpeed : 0
         // });
 
-        initialize();
+        
     }
 });
 
