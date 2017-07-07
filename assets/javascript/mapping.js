@@ -102,6 +102,10 @@ $('#login').on('click', function(event){
                     $('#' + fbRouteName).append(timeRecord);
                 }
                 else {
+                    $('#' + fbRouteName).append('<td>' + fbStart + '</td>');
+                    $('#' + fbRouteName).append('<td>' + fbEnd + '</td>');
+                    $('#' + fbRouteName).append('<td>' + fbRouteName + '</td>');
+                    $('#' + fbRouteName).append('<td>' + fbDistTrav + '</td>');
                     $('#' + fbRouteName).append('<td>' + fbAvgSpeed + '</td>');
                     $('#' + fbRouteName).append('<td>' + fbTime + '</td>');
                 }
@@ -153,15 +157,22 @@ $("#submit").on("click", function(event){
 });
 
 $(function() {
-    $("#time-rec").on("click", function(event){
+    $("button#time-rec").on("click", function(event){
         event.preventDefault();
-
+        console.log('clicked');
         var minutes = parseInt($('#time-input').val());
-        var speedDisplay = ((parseInt($())/ minutes)* 60).toFixed(1);
+        var distValue = parseInt($('#temp-distance')).val();
+        var speedDisplay = ((distValue / minutes) * 60).toFixed(1);
 
         $('#swap-speed').html('<td>' + speedDisplay + '</td>')
         $('#time-input').hide();
         $(this).hide();
+
+        
+        // database.ref(username + '/' + routeName).update({
+        //     timeTaken: minutes,
+        //     avgSpeed : speedDisplay,
+        // });
 
     });
 });
