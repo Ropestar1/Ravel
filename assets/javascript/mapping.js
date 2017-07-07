@@ -87,32 +87,27 @@ $('#login').on('click', function(event){
                 var fbDistTrav = childData.distanceTravelled;
                 var fbAvgSpeed = childData.avgSpeed;
                 var fbTime = childData.timeTaken;
-                // var timeRecord =
-                //     '<td><input type="text" id="time-input"><button type="button" id="time-rec">o</button></td>';
+
                 $('#user-stats').append('<tr id="' + fbRouteName + '"></tr>');
                 $('#' + fbRouteName).append('<td>' + fbStart + '</td>');
                 $('#' + fbRouteName).append('<td>' + fbEnd + '</td>');
-                $('#' + fbRouteName).append('<td>' + fbRouteName + '</td>');
-                $('#' + fbRouteName).append('<td id="temp-distance">' + fbDistTrav + '</td>');
-                $('#' + fbRouteName).append('<td id="swap-speed" data-temp="present">' + fbAvgSpeed + '</td>');
-                $('#' + fbRouteName).append('<td id="time-hold" data-temp="true">' + fbTime + '</td>');
+                // $('#' + fbRouteName).append('<td>' + fbRouteName + '</td>');
+                // $('#' + fbRouteName).append('<td id="temp-distance">' + fbDistTrav + '</td>');
+                // $('#' + fbRouteName).append('<td id="swap-speed" data-temp="present">' + fbAvgSpeed + '</td>');
+                // $('#' + fbRouteName).append('<td id="time-hold" data-temp="present">' + fbTime + '</td>');
 
-                // if (fbTime === 'tbd') {
-                //     $('#' + fbRouteName).append('<td>' + fbStart + '</td>');
-                //     $('#' + fbRouteName).append('<td>' + fbEnd + '</td>');
-                //     $('#' + fbRouteName).append('<td>' + fbRouteName + '</td>');
-                //     $('#' + fbRouteName).append('<td id="temp-distance">' + fbDistTrav + '</td>');
-                //     $('#' + fbRouteName).append('<td id="swap-speed">' + fbAvgSpeed + '</td>');
-                //     $('#' + fbRouteName).append(timeRecord);
-                // }
-                // else {
-                //     $('#' + fbRouteName).append('<td>' + fbStart + '</td>');
-                //     $('#' + fbRouteName).append('<td>' + fbEnd + '</td>');
-                //     $('#' + fbRouteName).append('<td>' + fbRouteName + '</td>');
-                //     $('#' + fbRouteName).append('<td>' + fbDistTrav + '</td>');
-                //     $('#' + fbRouteName).append('<td>' + fbAvgSpeed + '</td>');
-                //     $('#' + fbRouteName).append('<td>' + fbTime + '</td>');
-                // }
+                if (fbTime === 'tbd') {
+                    $('#' + fbRouteName).append('<td id="temp-route">' + fbRouteName + '</td>');
+                    $('#' + fbRouteName).append('<td id="temp-distance">' + fbDistTrav + '</td>');
+                    $('#' + fbRouteName).append('<td id="swap-speed">' + fbAvgSpeed + '</td>');
+                    $('#' + fbRouteName).append('<td id="time-hold">' + fbTime + '</td>');
+                }
+                else {
+                    $('#' + fbRouteName).append('<td>' + fbRouteName + '</td>');
+                    $('#' + fbRouteName).append('<td>' + fbDistTrav + '</td>');
+                    $('#' + fbRouteName).append('<td>' + fbAvgSpeed + '</td>');
+                    $('#' + fbRouteName).append('<td>' + fbTime + '</td>');
+                }
             });
         });    
     }
@@ -167,17 +162,19 @@ $('#time-rec').on("click", function(event){
     var minutes = parseInt($('#time-input').val());
     var distValue = parseInt($('#temp-distance').text());
     var speedDisplay = ((distValue / minutes) * 60).toFixed(0);
+    var location = $('#temp-route').text();
 
-    $('#swap-speed').html('<td>' + speedDisplay + '</td>'); //find way to target just the data-value attribute
-    $('#swap-speed').removeAttr('data-value');
+    $('#swap-speed').html('<td>' + speedDisplay + '</td>');
+    $('#time-hold').html('<td>' + minutes + '</td>');
 
-    $('#time-hold').html('<td>' + minutes + '</td>'); //find way to target just the data-value attribute
-    $('#time-hold').removeAttr('data-value');
+    $('td#swap-speed').removeAttr('id');
+    $('td#time-hold').removeAttr('id');
+    $('td#temp-distance').removeAttr('id');
     
-    // database.ref(username + '/' + routeName).update({
-    //     timeTaken: minutes,
-    //     avgSpeed : speedDisplay,
-    // });
+    database.ref(username + '/' + location).update({
+        timeTaken: minutes,
+        avgSpeed : speedDisplay,
+    });
 });
 
 function initialize() {
