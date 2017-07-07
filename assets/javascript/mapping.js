@@ -90,13 +90,44 @@ $('#login').on('click', function(event){
         initialize();
         
         return database.ref(username).orderByKey().once('value').then(function(snapshot) {
-            debugger;
+            snapshot.forEach(function(childSnapshot) {
+                // key will be "ada" the first time and "alan" the second time
+                // var key = childSnapshot.key;
+                // childData will be the actual contents of the child
+                var childData = childSnapshot.val();
+                console.log(childData);
 
-            $('#user-stats').append('<tr><td>5</td></tr>');
-            // $('"#' + routeName + '"').append('<td>5</td>');
-            // .append("<td>" +  snapshot.val().distanceTravelled + "</td>");
-            // .append("<td>" +  snapshot.val().speed + "</td>");
-            // .append("<td>" +  snapshot.val().time + "</td>");
+                // debugger;
+                var fbStart = childData.startPoint;
+                var fbEnd = childData.endPoint;
+                var fbRouteName = childSnapshot.key;
+                var fbDistTrav = childData.distanceTravelled;
+                var fbAvgSpeed = childData.avgSpeed;
+                var fbTime = childData.timeTaken;
+
+                // console.log('fbStart', fbStart);
+                // console.log('fbEnd', fbEnd);
+                // console.log('fbRouteName', fbRouteName);
+                // console.log('fbDistTrav', fbDistTrav);
+                // console.log('fbAvgSpeed', fbAvgSpeed);
+                // console.log('fbTime', fbTime);
+
+                $('#user-stats').append('<tr id="' + fbRouteName + '"></tr>');
+
+                $('#' + fbRouteName).append('<td>' + fbStart + '</td>');
+                $('#' + fbRouteName).append('<td>' + fbEnd + '</td>');
+                $('#' + fbRouteName).append('<td>' + fbRouteName + '</td>');
+                $('#' + fbRouteName).append('<td>' + fbDistTrav + '</td>');
+                $('#' + fbRouteName).append('<td>' + fbAvgSpeed + '</td>');
+                
+                if (fbTime === 'tbd') {
+                    $('#' + fbRouteName).append('<td>' + fbTime + '</td>');
+                }
+                else {
+                    $('#' + fbRouteName).append('<td>' + fbTime + '</td>');
+                }
+
+            });
         });
 
         // database.ref('/' + username).set({
@@ -140,21 +171,16 @@ $("#submit").on("click", function(event){
         endLat = response.routes[0].legs[0].end_location.lat;
         endLng = response.routes[0].legs[0].end_location.lng;
 
-        distance = response.routes[0].legs[0].distance.value; //gives the value in meters...I think
+        distance = ((response.routes[0].legs[0].distance.value) / 1609.34).toFixed(2);
         
         //USE AN IF CONDITIONAL FOR IF THIS FILEPATH DOESN'T EXIST, SET ONE. ELSE DON'T DO ANYTHING????
-        // if () {
-            database.ref(username + '/' + routeName).set({
-                distanceTravelled: distance,
-                timeTaken: 'tbd',
-                avgSpeed : 'tbd',
-            });
-            debugger;
-        // }
-
-        // else {
-        //     alert(route already exists);
-        // }
+        database.ref(username + '/' + routeName).set({
+            startPoint: origin,
+            endPoint: destination,
+            distanceTravelled: distance,
+            timeTaken: 'tbd',
+            avgSpeed : 'tbd',
+        });
     });
 
     calcRoute();
