@@ -33,9 +33,7 @@ var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
 var map;
 
-database.ref().on("value", function(snapshot) {
-	console.log("this is the snapshot: " + snapshot)
-    
+database.ref().on("value", function(snapshot) {   
     userList = Object.keys(snapshot.val());
 
 	// If any errors are experienced, log them to console.
@@ -89,7 +87,7 @@ $('#login').on('click', function(event){
                 var fbAvgSpeed = childData.avgSpeed;
                 var fbTime = childData.timeTaken;
                 var timeRecord =
-                    '<td><input type="text" id="time-input"><button type="submit" id="time-rec">o</button></td>';
+                    '<td><input type="text" id="time-input"><button type="button" id="time-rec">o</button></td>';
 
                 $('#user-stats').append('<tr id="' + fbRouteName + '"></tr>');
 
@@ -157,16 +155,17 @@ $("#submit").on("click", function(event){
 });
 
 $(function() {
-    $("button#time-rec").on("click", function(event){
+    $('button#time-rec').on("click", function(event){
         event.preventDefault();
+        
         console.log('clicked');
-        var minutes = parseInt($('#time-input').val());
-        var distValue = parseInt($('#temp-distance')).val();
-        var speedDisplay = ((distValue / minutes) * 60).toFixed(1);
+        // var minutes = parseInt($('#time-input').val());
+        // var distValue = parseInt($('#temp-distance')).val();
+        // var speedDisplay = ((distValue / minutes) * 60).toFixed(1);
 
-        $('#swap-speed').html('<td>' + speedDisplay + '</td>')
-        $('#time-input').hide();
-        $(this).hide();
+        // $('#swap-speed').html('<td>' + speedDisplay + '</td>')
+        // $('#time-input').hide();
+        // $(this).hide();
 
         
         // database.ref(username + '/' + routeName).update({
