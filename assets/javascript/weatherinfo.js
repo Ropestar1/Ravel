@@ -1,7 +1,7 @@
 var zipcode = 94568; //this will be an input through googlemaps
 
 //we can use city and state data to get weather
-var queryURL = "https://cors-anywhere.herokuapp.com/"+"http://api.wunderground.com/api/f865102da28852b3/conditions/q/" + zipcode + ".json";
+var queryURL = "http://api.wunderground.com/api/f865102da28852b3/conditions/q/" + zipcode + ".json";
 
 $.ajax({
   url: queryURL,
