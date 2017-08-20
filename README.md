@@ -2,6 +2,11 @@
 
 Web application that allows users to sign-in with their username (no password) and access their saved bike routes. This is a personal development web application that allows users to log the duration of their set bike routes, and see if they can get their time done faster.
 
+Contributors:
+
+[@Ropestar1](https://github.com/Ropestar1), [@saumyad22](https://github.com/saumyad22), [@@mashelw](https://github.com/mashelw) 
+
+
 ### Technologies Used:
 HTML5, CSS3, Bootstrap, JavaScript, Google firebase, APIs.
 
