@@ -4,7 +4,7 @@ Web application that allows users to sign-in with their username (no password) a
 
 Contributors:
 
-[@Ropestar1](https://github.com/Ropestar1), [@saumyad22](https://github.com/saumyad22), [@@mashelw](https://github.com/mashelw) 
+[@Ropestar1](https://github.com/Ropestar1), [@saumyad22](https://github.com/saumyad22), [@mashelw](https://github.com/mashelw) 
 
 
 ### Technologies Used:
