@@ -10,8 +10,9 @@ Google Maps, Weather Underground
 
 #### Walkthrough:
 1. User logs in with their unique username. No password.
-⋅⋅⋅ a. If user exists, their profile page will show up.
-⋅⋅⋅ b. If user doesn't exist, they are prompted to create an account.
+
+   a. If user exists, their profile page will show up.
+   b. If user doesn't exist, they are prompted to create an account.
 
 2. Once user is logged in, user is able to see the current weather of their location, and they are able to see their past routes taken.
 
